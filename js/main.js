@@ -18,7 +18,8 @@ function renderSidebar(active) {
 }
 
 function route() {
-    let hash = location.hash.replace('#', '');
+    // Normalize the hash to avoid potential issues with multiple '#'
+    let hash = location.hash.slice(1);
     let page = 'editor'; // default
     if (hash === 'browse') page = 'browse';
     if (hash === 'settings') page = 'settings';
